@@ -1,25 +1,49 @@
 {% for voucher in vouchers %}
-<table style="width: 100%;line-height: 18px; margin-bottom: 100px; page-break-inside: avoid">
+<table style="width: 100%; page-break-inside: avoid">
     <tbody>
         <tr>
-            <td valign="top" style="background-color: #e6e7e9; text-align: center;">
-               <div style="padding-top: 80px; font-size: 46px;">GUTSCHEIN</div>
-               <div style="padding-top: 220px;color: #a79056;font-size: 110px;">{{ voucher.value.price }} {{ currency }}</div>
+            <td align="top" style="background-color: #e6e7e9; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 20px 0">
+               <h1 style="font-size: 50px;">GUTSCHEIN</h1>
+                <div style="margin: 50px; width: 420px; height: 280px;  background: white; border-radius: 30px; box-shadow:10px 10px 10px 0px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center">
+                    <p style="color: #a79056; font-size: 100px">{{ voucher.value.price }} {{ currency }}</p>
+                </div>
+                <img src="https://www.shopware.com/media/unknown/97/41/bb/sw-logo-blue.svg" height="60px"/>
            </td>
-            <td style="width: 200px;padding: 30px;">
-               <p><strong>Einlöseadresse</strong></p>
+            <td style="width: 300px; padding-left: 30px;">
+               <strong>Einlöseadresse</strong>
                <p>{{ merchant.publicCompanyName }}<br>{{ merchant.country }}, {{ merchant.city }}<br>{{ merchant.street }}</p>
-               <p><br>Telefon: {{ merchant.publicPhoneNumber }}<br>E-Mail: <a href="mailto:{{ merchant.publicEmail }}">{{ merchant.publicEmail }}</a><br>Web: <a href="{{ merchant.publicWebsite }}">{{ merchant.publicWebsite }}</a></p>
-               <p><br><strong>Gültigkeit</strong><br>Sequatat ecaborrum ipid quamusa pelique re, offici beroviti dolupta tenisim latiis es offici simodit, quodit, incte quo bea quaes es simodit. Dieser Gutschein ist ausgestellt auf den Namen<br>{{ customerName }}</p>
-               <p><br><strong>Ausstellungsdatum</strong></p>
-               <p>{{ today }}</p>
-               <p>&nbsp;</p>
-               <p><strong>Gutscheinnummer</strong></p>
-               <p>{{ voucher.code }}</p>
+               <p>Telefon: {{ merchant.publicPhoneNumber }}<br>E-Mail: <a href="mailto:{{ merchant.publicEmail }}">{{ merchant.publicEmail }}</a><br>Web: <a href="{{ merchant.publicWebsite }}">{{ merchant.publicWebsite }}</a></p><br/>
+               <strong>Ausgestellt auf</strong><p>{{ customerName }}</p><br/>
+               <strong>Ausstellungsdatum</strong><p>{{ today }}</p><br/>
+               <strong>Gutscheinnummer</strong><p>{{ voucher.code }}</p>
             </td>
        </tr>
    </tbody>
    </table>
 {% endfor %}
 
-<style>strong {color: #a79056;}</style>
+<style>
+    table {
+        font-family: "Arial"; 
+    }
+
+    h1 {
+        font-family: "Times New Roman";
+         color: #3c3c3c;
+    } 
+    
+    p {
+        color: #3c3c3c; 
+        font-size: 14px
+    } 
+    
+    strong {
+        color: #a79056;
+        font-size: 18px
+    } 
+    
+    a {
+        color: #189eff;
+        text-decoration: none
+    }
+</style>
